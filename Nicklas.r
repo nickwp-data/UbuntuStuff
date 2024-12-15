@@ -1,13 +1,3 @@
-install.packages("dplyr")
-install.packages("RSelenium")
-install.packages("jsonlite")
-install.packages("httr")
-install.packages("pak")
-install.packages("rvest")
-install.packages("xml2")
-install.packages("DBI")
-install.packages("RMySQL")
-
 library(dplyr)
 library(RSelenium)
 library(jsonlite)
@@ -293,8 +283,8 @@ con <- dbConnect(
   dbname = "miljødata",          # Navn på databasen
   host = "localhost",        # Adresse til databasen
   port = 3306,               # Porten (standard er 3306 for MySQL)
-  user = "root",       # Dit MySQL-brugernavn
-  password = "1234567891" # Dit MySQL-password
+  user = "dallocal",       # Dit MySQL-brugernavn
+  password = "123456789" # Dit MySQL-password
 )
 
 
@@ -507,3 +497,68 @@ for (i in 1:nrow(data_to_insert)) {
 }
 
 
+
+
+
+#Definer sti til logfilen
+log_file <- "./banegaard_log.txt"
+
+#Skriv data til en logfil (tekstformat)
+write.table(banegaard_dataframe, 
+            file = log_file, 
+            row.names = FALSE,   # Fjern række-numre
+            col.names = TRUE,    # Behold kolonnenavne
+            sep = "\t",          # Brug tabulator som separator
+            quote = FALSE)       # Fjern anførselstegn omkring tekst
+
+#Bekræft, at logfilen er oprettet
+cat("Data er blevet skrevet til logfilen:", log_file)
+
+
+
+#Definer sti til logfilen
+log_file <- "./risoe_log.txt"
+
+#Skriv data til en logfil (tekstformat)
+write.table(risoe_dataframe, 
+            file = log_file, 
+            row.names = FALSE,   # Fjern række-numre
+            col.names = TRUE,    # Behold kolonnenavne
+            sep = "\t",          # Brug tabulator som separator
+            quote = FALSE)       # Fjern anførselstegn omkring tekst
+
+#Bekræft, at logfilen er oprettet
+cat("Data er blevet skrevet til logfilen:", log_file)
+
+
+
+#Definer sti til logfilen
+log_file <- "./hcab_log.txt"
+
+#Skriv data til en logfil (tekstformat)
+write.table(hcab_dataframe, 
+            file = log_file, 
+            row.names = FALSE,   # Fjern række-numre
+            col.names = TRUE,    # Behold kolonnenavne
+            sep = "\t",          # Brug tabulator som separator
+            quote = FALSE)       # Fjern anførselstegn omkring tekst
+
+#Bekræft, at logfilen er oprettet
+cat("Data er blevet skrevet til logfilen:", log_file)
+
+
+
+
+#Definer sti til logfilen
+log_file <- "./anholt_log.txt"
+
+#Skriv data til en logfil (tekstformat)
+write.table(anholt_dataframe, 
+            file = log_file, 
+            row.names = FALSE,   # Fjern række-numre
+            col.names = TRUE,    # Behold kolonnenavne
+            sep = "\t",          # Brug tabulator som separator
+            quote = FALSE)       # Fjern anførselstegn omkring tekst
+
+#Bekræft, at logfilen er oprettet
+cat("Data er blevet skrevet til logfilen:", log_file)
